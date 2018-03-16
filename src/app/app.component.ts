@@ -7,4 +7,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+  selected = "translate";
+
+  translate(){
+    this.selected = "translate";
+  }
+
+  results(){
+    this.selected = "results";
+  }
 }

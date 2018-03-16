@@ -8,12 +8,18 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'app';
   selected = "translate";
+  result = {};
 
   translate(){
     this.selected = "translate";
   }
 
   results(){
+    this.selected = "results";
+  }
+
+  receiveTranslationResult(translationResult: {}){
+    this.result = translationResult;
     this.selected = "results";
   }
 }

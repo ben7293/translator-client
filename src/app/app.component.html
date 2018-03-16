@@ -8,7 +8,7 @@
   </div>
 </nav>
   <div class="col-xs-12">
-    <app-translate *ngIf="selected == 'translate'"></app-translate>
-    <app-results *ngIf="selected == 'results'"></app-results>
+    <app-translate *ngIf="selected == 'translate'" (result) = "receiveTranslationResult($event)"></app-translate>
+    <app-results *ngIf="selected == 'results'" [result] = "result"></app-results>
   </div>
 

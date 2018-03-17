@@ -23,7 +23,7 @@ export class TranslateComponent implements OnInit {
         this.result.emit(val);
       },
       res => {
-        console.log(res);
+        this.result.emit({original_text: this.origTextRef.nativeElement.value, translation:"Server error. Try again later."});
       }
     );
   }

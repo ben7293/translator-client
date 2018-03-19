@@ -16,16 +16,22 @@ export class TranslateComponent implements OnInit {
   }
   
   submitTranslation(){
-    this.http
-    .post("http://52.90.64.206:8000/translator_service/", {Text: this.origTextRef.nativeElement.value})
-    .subscribe(
-      (val) => {
-        this.result.emit(val);
-      },
-      res => {
-        this.result.emit({original_text: this.origTextRef.nativeElement.value, translation:"Server error. Try again later."});
-      }
-    );
+    if (this.origTextRef.nativeElement.value){
+      this.http
+      .post("http://localhost:8000/translator_service/", {Text: this.origTextRef.nativeElement.value})
+      .subscribe(
+        (val) => {
+          this.result.emit(val);
+        },
+        res => {
+          this.result.emit({original_text: this.origTextRef.nativeElement.value, translation:"Server error. Try again later."});
+        }
+      );
+    }
+    else{
+      this.result.emit();
+    }
+
   }
 
 }

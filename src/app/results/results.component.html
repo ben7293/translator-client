@@ -1,21 +1,19 @@
 <div class="form-group col-10">
   <h2>Results</h2>
-  <div class="col-3">
-    <div class="panel panel-default">
-      <div class="panel-heading"><strong>Original Text</strong></div>
-      <div class="panel-body">{{ result['original_text'] }}</div>
-    </div>    
-  </div>
-  <div class="col-3">
-    <div class="panel panel-default">
-      <div class="panel-heading"><strong>Original Language</strong></div>
-      <div class="panel-body">{{ result['original_lang'] }}</div>
-    </div>    
-  </div>
-  <div class="col-3">
-    <div class="panel panel-default">
-      <div class="panel-heading"><strong>English Translation</strong></div>
-      <div class="panel-body">{{ result['translation'] }}</div>
-    </div>    
-  </div>    
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Original Text</th>
+        <th>Original Language</th>
+        <th>Translation</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let entry of result">
+          <td>{{ entry.original_text }}</td>
+          <td>{{ entry.original_lang }}</td>
+          <td>{{ entry.translation }}</td>
+      </tr>
+    </tbody>
+  </table>
 </div>

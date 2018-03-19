@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { HttpClient } from "@angular/common/http";
 
 @Component({
   selector: 'app-root',
@@ -8,18 +9,28 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'app';
   selected = "translate";
-  result = {};
+  result = [];
+  constructor(private http: HttpClient){}
 
-  translate(){
-    this.selected = "translate";
-  }
-
-  results(){
-    this.selected = "results";
+  getHistory(){
+    this.http
+    .get("http://localhost:8000/translator_service/get_all")
+    .subscribe(
+      (val) => {
+        this.result = Object.values(val).reverse();
+      },
+    );      
   }
 
   receiveTranslationResult(translationResult: {}){
-    this.result = translationResult;
+    if(translationResult){
+      this.result.push(translationResult);
+    }
     this.selected = "results";
   }
+
+  ngOnInit(){
+    this.getHistory();
+  }
+
 }

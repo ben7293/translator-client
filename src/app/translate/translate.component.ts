@@ -18,7 +18,7 @@ export class TranslateComponent implements OnInit {
   submitTranslation(){
     if (this.origTextRef.nativeElement.value){
       this.http
-      .post("http://localhost:8000/translator_service/", {Text: this.origTextRef.nativeElement.value})
+      .post("http://52.90.64.206:8000/translator_service/", {Text: this.origTextRef.nativeElement.value})
       .subscribe(
         (val) => {
           this.result.emit(val);

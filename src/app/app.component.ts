@@ -14,7 +14,7 @@ export class AppComponent {
 
   getHistory(){
     this.http
-    .get("http://localhost:8000/translator_service/get_all")
+    .get("http://52.90.64.206:8000/translator_service/get_all")
     .subscribe(
       (val) => {
         this.result = Object.values(val).reverse();

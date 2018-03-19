@@ -24,7 +24,7 @@ export class AppComponent {
 
   receiveTranslationResult(translationResult: {}){
     if(translationResult){
-      this.result.push(translationResult);
+      this.result.unshift(translationResult);
     }
     this.selected = "results";
   }
